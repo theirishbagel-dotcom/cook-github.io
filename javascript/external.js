@@ -8,6 +8,29 @@
 //
 
 
+var webmaps =
+[
+  ["Zillow", "https://www.zillow.com/homes/for_sale/", `Zillow is a real estate
+  app designed to catalog homes for sale and offer sellers a space to post their
+  home to sell. The strengths of the application include broad data sets
+  provided by google, as well as many filters to narrow down search results.
+  Also, each home has lots of information provided, such as price history,
+  build dates, and more. The GIS functionality of Zillow consists of Data
+  Visualization and Location Based Queries.`],
+  ["Blitzortung", "https://map.blitzortung.org/#5.92/30.247/-96.495/0/38", `The
+   primary purpose of Blitzortung is to allow users to see lightning strikes in
+   real time on a global scale. •	The strengths of Blitzortung include
+   realtime satellite data providing an always up to date map of global
+   lightning strikes. •	Blitzortung employs Data Visualization and Hotspot
+   Analysis to analyze global lightning strikes. There is also limited
+   Aggregation in the form of the average number of lightning strikes per min
+   and hour.`]
+ ];
+
+
+
+
+
 function welcome()
 {
   let a = "Please enter your name.";
@@ -22,18 +45,18 @@ document.write(welcome());
 function webmap_table()
 {
   document.write("<table width=100%>");
-  for (var row=0; row < 2; row++)
+  for (var row=0; row < webmaps.length; row++)
   {
     document.write("<tr>");
-    for (var column=0; column < 3; column++)
+    for (var column=0; column < webmaps[0].length; column++)
     {
-      document.write("<td>" + row + "," + column + "</td>");
+      document.write("<td>" + webmaps[row][column] + "</td>");
      }
      document.write("</tr>");
-   }
-   document.write("</table>");
-   return "";
- }
+    }
+    document.write("</table>");
+    return "";
+  }
 
 window.onload = function() {
  //creates a date representing the current date and time
