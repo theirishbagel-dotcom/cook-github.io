@@ -52,5 +52,12 @@ h1 {
   padding: 0;
   text-align: center;
   position: relative;
-  
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#webmap-reviews {
+  text-align: left;
+  font-size: 25px;
+  position: relative;
 }
