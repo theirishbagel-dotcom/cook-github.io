@@ -7,6 +7,7 @@
   <meta name = "viewport" content = "width=device-width, initial- scale=1.0" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.1/dist/leaflet.css"
   integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="">
+  <link rel="stylesheet" type="text/css" href="css/map_style.css">
   <script src="https://unpkg.com/leaflet@1.9.1/dist/leaflet.js" integrity="sha256-
   NDI0K41gVbWqfkkaHj15IzU7PtMoelkzyKp8TOaFQ3s=" crossorigin=""></script>
 
@@ -67,6 +68,21 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11',   // you can also try 'mapbox/satellite-v9' or others
     accessToken: mapbox_access_token
 }).addTo(mymap);
+
+var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+var circle = L.circle([51.508, -0.11], { color: 'red', fillColor: '#f03',
+fillOpacity: 0.5, radius: 500}).addTo(mymap);
+
+var polygon = L.polygon([[51.509, -0.08], [51.503, -0.06], [51.51, -
+0.047]]).addTo(mymap);
+
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+circle.bindPopup("I am a circle.");
+polygon.bindPopup("I am a polygon.");
+marker.on('click', function(e){ mymap.setView(e.latlng, 14);})
+circle.on('click', function(e){ mymap.setView(e.latlng, 13);})
+polygon.on('click', function(e){ mymap.setView(e.latlng, 13);})
 </script>
 </div>
 
