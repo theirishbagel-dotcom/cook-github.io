@@ -80,6 +80,10 @@
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
 
+
+
+
+
    var geocoder = L.Control.geocoder({
    defaultMarkGeocode: false,
    geocoder: new L.Control.Geocoder.Nominatim()
@@ -94,7 +98,79 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(mymap);
    mymap.fitBounds(poly.getBounds());
    }).addTo(mymap);
 
+   var wonders = [
+           {
+               name: "Taj Mahal, India",
+               coords: [27.174961, 78.042385],
+               img: "https://upload.wikimedia.org/wikipedia/commons/d/da/Taj-Mahal.jpg",
+               desc: "The Taj Mahal is an ivory-white marble mausoleum built by Mughal emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
+               color: "red"
+           },
+           {
+               name: "Great Wall of China",
+               coords: [40.334245, 116.477652],
+               img: "https://upload.wikimedia.org/wikipedia/commons/1/10/20090529_Great_Wall_8185.jpg",
+               desc: "The Great Wall of China is a series of fortifications built along historical northern borders of China to protect against invasions.",
+               color: "green"
+           },
+           {
+               name: "Petra, Jordan",
+               coords: [30.328611, 35.441944],
+               img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Treasury_petra_crop.jpeg/330px-Treasury_petra_crop.jpeg",
+               desc: "Petra is a historical and archaeological city famous for its rock-cut architecture and water conduit system.",
+               color: "blue"
+           },
+           {
+               name: "Christ the Redeemer, Brazil",
+               coords: [-22.951389, -43.2108334],
+               img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Visita_de_estudantes_ao_Cristo_Redentor%2C_Acervo_do_Instituto_Moreira_Salles.jpg/250px-Visita_de_estudantes_ao_Cristo_Redentor%2C_Acervo_do_Instituto_Moreira_Salles.jpg",
+               desc: "The statue of Christ the Redeemer is an iconic symbol of Rio de Janeiro, standing 30 meters tall atop Corcovado mountain.",
+               color: "orange"
+           },
+           {
+               name: "Machu Picchu, Peru",
+               coords: [-13.163056, -72.545556],
+               img: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Machu_Picchu%2C_Peru.jpg",
+               desc: "Machu Picchu is an Incan citadel set high in the Andes Mountains in Peru, renowned for its sophisticated dry-stone walls.",
+               color: "purple"
+           },
+           {
+               name: "Chichen Itza, Mexico",
+               coords: [20.682778, -88.569167],
+               img: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Chichen_Itza-16.jpg/250px-Chichen_Itza-16.jpg",
+               desc: "Chichen Itza was a large pre-Columbian city built by the Maya people, known for the Pyramid of Kukulcán.",
+               color: "darkred"
+           },
+           {
+               name: "The Colosseum, Rome",
+               coords: [41.890169, 12.492269],
+               img: "https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg",
+               desc: "The Colosseum is an ancient amphitheatre in Rome, Italy, famous for hosting gladiatorial games and public spectacles.",
+               color: "darkblue"
+           }
+       ];
 
+       // Add each wonder to the map
+       wonders.forEach(function(wonder) {
+           var marker = L.circleMarker(wonder.coords, {
+               radius: 10,
+               fillColor: wonder.color,
+               color: "#000",
+               weight: 1,
+               opacity: 1,
+               fillOpacity: 0.8
+           }).addTo(mymap);
+
+           var popupContent = `
+               <div class="custom-popup">
+                   <b>${wonder.name}</b>
+                   <img src="${wonder.img}" alt="${wonder.name}" />
+                   <p>${wonder.desc}</p>
+               </div>
+           `;
+
+           marker.bindPopup(popupContent);
+   });
 
 // var marker = L.marker([51.5, -0.09]).addTo(mymap);
 //

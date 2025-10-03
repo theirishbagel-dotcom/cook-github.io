@@ -1,5 +1,21 @@
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip
-{
-background: yellow;
+.leaflet-popup-content-wrapper {
+    background-color: #f0f0f0;
+    color: #000000;
+    border: 2px solid #2c7bb6;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    padding: 10px 15px;
+    transition: background-color 0.1s;
+    text-align: center;
+}
+
+/* Hover effect */
+.leaflet-popup-content-wrapper:hover {
+    background-color: #e0e0e0;
+}
+
+
+.leaflet-popup-tip {
+    background-color: #f0f0f0;
+    border: 2px solid #2c7bb6;
 }

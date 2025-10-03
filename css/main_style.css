@@ -61,3 +61,10 @@ h1 {
   font-size: 25px;
   position: relative;
 }
+
+.custom-popup img{
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
